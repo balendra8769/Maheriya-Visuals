@@ -1,0 +1,575 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maheriya Visuals</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0a0e27 0%, #040404 50%, #1a0033 100%);
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 99%;
+      object-fit: cover;
+      opacity: 2;
+      z-index: -1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      letter-spacing: 0.16em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      line-height: 1.8;
+    }
+    /* ************* */
+.service-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 30px;
+    border-radius: 50px;
+    width: 350px;
+    max-width: 100%; /* Mobile par overflow na ho */
+    text-align: left;
+    transition: 0.3s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.service-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+    .services {
+      display: grid;
+      gap: 14px;
+      width: 100%;
+      max-width: 720px;
+      margin-top: 16px;
+      text-align: left;
+    }
+/* ******************** */
+    .services li {
+      list-style: none;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px 22px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+      will-change: transform;
+    }
+
+    .services li:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.10));
+      border-color: rgba(255,255,255,0.18);
+      box-shadow: 0 10px 30px rgba(255,255,255,0.04);
+    }
+
+    .services li:active {
+      transform: translateY(-2px) scale(0.997);
+    }
+
+    .services li::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 36px;
+      margin-right: 12px;
+      border-radius: 4px;
+      background: linear-gradient(180deg,#ffb366,#ff7a66);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .services li:hover::before {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .services-title {
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+
+    .gallery-btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 16px 34px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #000000;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .gallery-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 100;
+      padding: 16px 32px;
+    }
+
+    header nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      margin-right: auto;
+      padding-left: 20px;
+    }
+
+    header .logo img {
+      height: 55px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    header .logo span {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    header nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+    }
+
+    header nav a:hover {
+      opacity: 0.7;
+    }
+
+    body {
+      padding-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 14px 16px;
+      }
+
+      header nav {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      header .logo {
+        font-size: 0.95rem;
+        flex-basis: 100%;
+      }
+
+      header nav ul {
+        gap: 16px;
+        flex-basis: 100%;
+        justify-content: center;
+      }
+
+      header nav a {
+        font-size: 0.9rem;
+      }
+
+      body {
+        padding-top: 120px;
+      }
+
+      .hero {
+        min-height: 55vh;
+        padding: 24px 16px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .services-title {
+        font-size: 0.9rem;
+      }
+
+      .services li {
+        padding: 14px 18px;
+        font-size: 0.95rem;
+      }
+
+      .gallery-btn {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 12px 12px;
+      }
+
+      header .logo {
+        font-size: 0.85rem;
+      }
+
+      header nav ul {
+        gap: 12px;
+      }
+
+      header nav a {
+        font-size: 0.8rem;
+      }
+
+      body {
+        padding-top: 140px;
+      }
+
+      .hero {
+        min-height: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 16px 12px 24px;
+        gap: 16px;
+      }
+
+      .hero::before {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .hero video {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: min(100%, 420px);
+        height: 220px;
+        border-radius: 20px;
+        object-fit: cover;
+        z-index: 1;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 100%;
+        gap: 14px;
+        z-index: 1;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(1.4rem, 4vw, 2.1rem);
+        letter-spacing: 0.08em;
+      }
+
+      .hero-content p {
+        font-size: 0.9rem;
+      }
+
+      .services {
+        max-width: 100%;
+        margin-top: 0;
+      }
+
+      .services-title {
+        font-size: 0.85rem;
+        text-align: center;
+      }
+
+      .services li {
+        padding: 10px 14px;
+        font-size: 0.88rem;
+      }
+
+      .gallery-btn {
+        padding: 11px 24px;
+        font-size: 0.9rem;
+        margin-top: 8px;
+      }
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 32px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section a {
+      color: #d0d0d0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 30px 16px;
+        margin-top: 40px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      header {
+        padding: 10px 8px;
+      }
+
+      header .logo {
+        font-size: 0.75rem;
+      }
+
+      header nav ul {
+        gap: 8px;
+      }
+
+      header nav a {
+        font-size: 0.7rem;
+      }
+
+      body {
+        padding-top: 120px;
+      }
+
+      .hero {
+        min-height: 40vh;
+        padding: 12px 8px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+      }
+
+      .services-title {
+        font-size: 0.8rem;
+      }
+
+      .services li {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+      }
+
+      .gallery-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        margin-top: 14px;
+      }
+
+      .hero-content {
+        gap: 16px;
+      }
+
+      footer {
+        padding: 20px 12px;
+      }
+
+      .footer-section h3 {
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://res.cloudinary.com/cqlro3dc/image/upload/v1786476687/logo2.png" alt="Maheriya Visuals Logo">
+        <span>Maheriya Visuals</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <!-- <video autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/cqlro3dc/video/upload/v1786476722/Loop.mp4" type="video/mp4" />
+      Your browser does not support video playback.
+    </video> -->
+
+    <div class="hero-content">
+      <h1>MAHERIYA VISUALS</h1>
+
+      
+      <div class="services-title">Services we provide :</div>
+      <ul class="services">
+        <li class="">Car & Bike Delivery reel</li>
+        <li>Shop & Brand Promotions</li>
+        <li>Cinematic event reels</li>
+        <li>Birthday & function shoots</li>
+        <li>Personal shoots</li>
+        <li>Professional Reel editing</li>
+      </ul>
+      <a href="gallery.html" class="gallery-btn">Enter the gallery</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="video-editing.html">Video Editing</a></li>
+          <li><a href="graphics-design.html">Graphics Design</a></li>
+          <li><a href="gallery.html">Event Shoots</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="contact.html">Get in Touch</a></li>
+          <li><a href="contact.html">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Maheriya Visuals. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
